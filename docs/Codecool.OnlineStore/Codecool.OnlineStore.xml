@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Codecool.OnlineStore</name>
+    </assembly>
+    <members>
+        <member name="T:Codecool.OnlineStore.Program">
+            <summary>
+            This is the main class of your program which contains Main method
+            </summary>
+        </member>
+        <member name="M:Codecool.OnlineStore.Program.Main(System.String[])">
+            <summary>
+            This is the entry point of your program.
+            </summary>
+            <param name="args">Command line arguments.</param>
+        </member>
+    </members>
+</doc>

@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{29CADB27-97D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codecool.OnlineStore", "src\Codecool.OnlineStore\Codecool.OnlineStore.csproj", "{1B6A7193-0E01-46CC-988A-383882DE67AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codecool.OnlineStore.Data", "Codecool.OnlineStore.Data\Codecool.OnlineStore.Data.csproj", "{5FCCF6FA-0C20-47DF-8338-28AD467447DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codecool.OnlineStore.Data", "Codecool.OnlineStore.Data\Codecool.OnlineStore.Data.csproj", "{5FCCF6FA-0C20-47DF-8338-28AD467447DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codecool.OnlineStore.Tests", "Codecool.OnlineStore.Tests\Codecool.OnlineStore.Tests.csproj", "{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,18 @@ Global
 		{5FCCF6FA-0C20-47DF-8338-28AD467447DE}.Release|x64.Build.0 = Release|Any CPU
 		{5FCCF6FA-0C20-47DF-8338-28AD467447DE}.Release|x86.ActiveCfg = Release|Any CPU
 		{5FCCF6FA-0C20-47DF-8338-28AD467447DE}.Release|x86.Build.0 = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|x64.Build.0 = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Debug|x86.Build.0 = Debug|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|x64.ActiveCfg = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|x64.Build.0 = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D04B3268-7F2F-4CE4-A6A4-1F0610496A2A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

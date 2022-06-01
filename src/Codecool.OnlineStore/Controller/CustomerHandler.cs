@@ -64,15 +64,15 @@
 
         private void DisplayAvailableProducts()
         {
-                var availableProducts = GetAllAvailableProducts();
-                if (!availableProducts.Any())
-                {
-                    _display.PrintMessage("There are no available products");
-                    return;
-                }
-                _view.DisplayAll(availableProducts);
-                var choosenProduct = ChooseProduct(availableProducts);
-                AddItemToCart(choosenProduct);
+            var availableProducts = GetAllAvailableProducts();
+            if (!availableProducts.Any())
+            {
+                _display.PrintMessage("There are no available products");
+                return;
+            }
+            _view.DisplayAll(availableProducts);
+            var choosenProduct = ChooseProduct(availableProducts);
+            AddItemToCart(choosenProduct);
         }
 
         private List<Product> GetAllAvailableProducts()
@@ -88,7 +88,7 @@
                 }
                 unitOfWork.CompleteUnit();
                 return availableProducts;
-            }        
+            }
         }
         private void DisplayProductsFromCategory()
         {
@@ -446,14 +446,14 @@
             var orderList = unitOfWork.Orders.GetAllOrdersWhere
                 (x => x.AssignedUser.UserId == _user.UserId && x.OrderStatus == OrderStatus.Delivered).ToList();
 
-                if (!orderList.Any())
-                {
-                    _display.PrintMessage("There are no orders to rate");
-                    return;
-                }
-                var targetOrder = _inputManager.GetItemFromList(orderList);
-                var targetOrderItem = SelectOrderItem(targetOrder);
-                RateSelectedProduct(targetOrderItem, unitOfWork);
+            if (!orderList.Any())
+            {
+                _display.PrintMessage("There are no orders to rate");
+                return;
+            }
+            var targetOrder = _inputManager.GetItemFromList(orderList);
+            var targetOrderItem = SelectOrderItem(targetOrder);
+            RateSelectedProduct(targetOrderItem, unitOfWork);
 
             unitOfWork.CompleteUnit();
         }
@@ -510,7 +510,7 @@
         private int countAllProductsInOrders(List<Order> orders)
         {
             int result = 0;
-            foreach(var order in orders)
+            foreach (var order in orders)
                 result = result + countAllProductsInTargetOrder(order);
 
             return result;
@@ -519,7 +519,7 @@
         private int countAllProductsInTargetOrder(Order order)
         {
             int result = 0;
-            foreach(OrderItem orderItem in order.ItemsList)
+            foreach (OrderItem orderItem in order.ItemsList)
                 result = result + orderItem.Quantity;
 
             return result;

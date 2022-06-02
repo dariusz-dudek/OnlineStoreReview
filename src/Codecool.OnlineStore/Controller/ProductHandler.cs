@@ -11,7 +11,7 @@
         Deactivate = 5,
         Activate = 6
     }
-    public class ProductHandler : BaseHandler
+    public class ProductHandler : BaseHandler, IProductHandler
     {
         public ProductHandler(IFactory<UnitOfWork> unitOfWorkFactory, IInputSystem inputManager, IMenuDisplay display) : base(unitOfWorkFactory, inputManager, new ConsoleView(), display)
         {
@@ -20,23 +20,39 @@
 
         public override void RunFeatureBasedOn(int userInput)
         {
+
         }
 
         public void CreateNewProduct()
         {
             using var unitOfWork = _unitOfWorkFactory.GetNew();
-            var name = _inputManager.FetchStringValue("Provide name");
-            if (unitOfWork.Products.GetAll().Any(p => p.ProductName.Equals(name.ToLower())))
-            {
-                _display.PrintMessage("Product with with this name already exist");
-                return;
-            }
+            var newProduct = GenerateNewProduct();
+            unitOfWork.Products.Add(newProduct);
+            unitOfWork.CompleteUnit();
+        }
+
+        private Product GenerateNewProduct()
+        {
+            using var unitOfWork = _unitOfWorkFactory.GetNew();
+
+            var name = CheckIfNameIsExist(unitOfWork);
             var description = _inputManager.FetchStringValue("Provide description");
             var price = _inputManager.FetchDecimalValue("Provide price");
             var amount = _inputManager.FetchIntValue("Provide amount");
             var newProduct = new Product() { ProductName = name, Description = description, Price = price, Amount = amount, Discount = 0, IsAvailable = true };
-            unitOfWork.Products.Add(newProduct);
-            unitOfWork.CompleteUnit();
+            return newProduct;
+        }
+
+        private string CheckIfNameIsExist(UnitOfWork unitOfWork)
+        {
+            //  while()
+            var name = _inputManager.FetchStringValue("Provide name");
+            if (unitOfWork.Products.GetAll().Any(p => p.ProductName.Equals(name.ToLower())))
+            {
+                _display.PrintMessage("Product with with this name already exist");
+
+            }
+            return name;
         }
 
         public void EditProduct()
@@ -117,13 +133,11 @@
         {
             var newPrice = _inputManager.FetchDecimalValue("Provide new price");
             product.Price = newPrice;
-
         }
         public void EditAmount(Product product)
         {
             var newAmount = _inputManager.FetchIntValue("Provide new amount");
             product.Amount = newAmount;
-
         }
 
         public void ChangeActiveState(Product product, bool state)
